@@ -1,0 +1,26 @@
+<template name="taskarea">
+    <div>
+        <button id="doneDelete" class="btn waves-effect waves-light"><i class="mdi-action-delete"></i> Delete Done Tasks</button>
+    </div>
+    <form id="taskInsertForm" method="post">
+        <div class="input-field">
+            <input type="text" name="task">
+            <label for="task">Enter Your Task</label>
+        </div>
+    </form>
+    {{#if tasklistlength}}
+    <div class="collection">
+        {{#each tasklist}}
+        <a href="#" data-id="{{_id}}" class="collection-item taskItem">
+            {{#if status}}
+                <i class="mdi-toggle-check-box"></i>
+            {{else}}
+            <i class="mdi-toggle-check-box-outline-blank"></i>
+            {{/if}}
+            
+            {{task}}
+        </a> {{/each}}
+    </div>
+    {{else}}
+    <h5 class="brown-text">No tasks to display</h5> {{/if}}
+</template>
